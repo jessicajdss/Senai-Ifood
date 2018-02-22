@@ -9,12 +9,10 @@ namespace senai.ifood.domain.Entities
 
         [ForeignKey("UsuarioId")]
         public UsuarioDomain usuario { get; set; }
-
         public int UsuarioId { get; set; }
 
         [ForeignKey("PermissaoId")]
         public PermissaoDomain permissao { get; set; }
-
         public int PermissaoId { get; set; }
 
         public ICollection<UsuarioPermissaoDomain> UsuariosPermissoes { get; set; }

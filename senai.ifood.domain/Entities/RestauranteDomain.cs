@@ -16,11 +16,11 @@ namespace senai.ifood.domain.Entities
         public string Responsavel { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(150)]
         public string Site { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(25)]
         public string Telefone { get; set; }
 
         [Required]
@@ -29,12 +29,10 @@ namespace senai.ifood.domain.Entities
 
         [ForeignKey("EspecialidadeId")]
         public EspecialidadeDomain Especialidade { get; set; }
-
         public int EspecialidadeId { get; set; }
 
         [ForeignKey("UsuarioId")]
         public UsuarioDomain usuario { get; set; }
-
         public int UsuarioId { get; set; }
 
        public ICollection<ProdutoDomain> ProdutosRestaurantes { get; set; }
