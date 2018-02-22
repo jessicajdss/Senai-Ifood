@@ -6,7 +6,7 @@ namespace senai.ifood.domain.Entities
     public class UsuarioDomain:BaseDomain
     {
         [Required]
-        [StringLength(100)]
+        [StringLength(150)]
         public string Email { get; set; }
 
         [Required]
