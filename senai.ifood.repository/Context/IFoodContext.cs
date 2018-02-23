@@ -28,7 +28,7 @@ namespace senai.ifood.repository.Context
             modelBuilder.Entity<RestauranteDomain>().ToTable("Restaurantes");
             modelBuilder.Entity<UsuarioPermissaoDomain>().ToTable("UsuariosPermissoes");
 
-            base OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
 
         }
     }

@@ -6,25 +6,25 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configurations;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using senai.ifood.repository.context;
+using senai.ifood.repository.Context;
 using senai.ifood.webapi;
 
 namespace senai.ifood.webapi
 {
     public class Startup
     {
-        public Iconfiguration Configuration { get; }
+        public IConfiguration Configuration { get; }
 
-        public Startup(Iconfiguration Configuration){
+        public Startup(IConfiguration configuration){
             Configuration = configuration;
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<IfoodContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<IFoodContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

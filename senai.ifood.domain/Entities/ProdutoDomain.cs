@@ -25,8 +25,7 @@ namespace senai.ifood.domain.Entities
         public RestauranteDomain Restaurante { get; set; }
 
         public int RestauranteId { get; set; }
-
-        public ICollection<RestauranteDomain> Restaurantes { get; set; }
+        
 
     }
 }
