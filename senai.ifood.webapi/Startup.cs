@@ -28,7 +28,9 @@ namespace senai.ifood.webapi
         {
             services.AddDbContext<IFoodContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
 
             services.AddScoped(typeof(IBaseRepository<>),typeof(BaseRepository<>));
         }

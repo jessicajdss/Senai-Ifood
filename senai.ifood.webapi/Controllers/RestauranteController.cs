@@ -14,7 +14,7 @@ namespace senai.ifood.webapi.Controllers
 
         [HttpGet]
         public IActionResult GetAction(){
-            return Ok(_restauranteRepository.Listar());
+            return Ok(_restauranteRepository.Listar(new string[]{"ProdutosRestaurantes"}));
         }
 
         [HttpGet("{id}")]
