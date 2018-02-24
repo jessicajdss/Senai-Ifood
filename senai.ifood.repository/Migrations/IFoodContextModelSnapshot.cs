@@ -88,7 +88,6 @@ namespace senai.ifood.repository.Migrations
                     b.Property<DateTime>("DataCriacao");
 
                     b.Property<string>("Descricao")
-                        .IsRequired()
                         .HasMaxLength(300);
 
                     b.Property<string>("Nome")
@@ -128,11 +127,9 @@ namespace senai.ifood.repository.Migrations
                         .HasMaxLength(100);
 
                     b.Property<string>("Site")
-                        .IsRequired()
                         .HasMaxLength(150);
 
                     b.Property<string>("Telefone")
-                        .IsRequired()
                         .HasMaxLength(25);
 
                     b.Property<int>("UsuarioId");

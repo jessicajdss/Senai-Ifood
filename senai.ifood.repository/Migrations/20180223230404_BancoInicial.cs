@@ -86,8 +86,8 @@ namespace senai.ifood.repository.Migrations
                     EspecialidadeId = table.Column<int>(nullable: false),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Responsavel = table.Column<string>(maxLength: 100, nullable: false),
-                    Site = table.Column<string>(maxLength: 150, nullable: false),
-                    Telefone = table.Column<string>(maxLength: 25, nullable: false),
+                    Site = table.Column<string>(maxLength: 150, nullable: true),
+                    Telefone = table.Column<string>(maxLength: 25, nullable: true),
                     UsuarioId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -149,7 +149,7 @@ namespace senai.ifood.repository.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Ativo = table.Column<bool>(nullable: false),
                     DataCriacao = table.Column<DateTime>(nullable: false),
-                    Descricao = table.Column<string>(maxLength: 300, nullable: false),
+                    Descricao = table.Column<string>(maxLength: 300, nullable: true),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     RestauranteId = table.Column<int>(nullable: false),
                     Valor = table.Column<decimal>(nullable: false)

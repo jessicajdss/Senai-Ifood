@@ -15,11 +15,9 @@ namespace senai.ifood.domain.Entities
         [StringLength(100)]
         public string Responsavel { get; set; }
 
-        [Required]
         [StringLength(150)]
         public string Site { get; set; }
 
-        [Required]
         [StringLength(25)]
         public string Telefone { get; set; }
 

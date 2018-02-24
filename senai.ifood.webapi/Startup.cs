@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using senai.ifood.repository.Context;
 using senai.ifood.webapi;
+using senai.ifood.domain.Contracts;
 
 namespace senai.ifood.webapi
 {
@@ -25,6 +26,8 @@ namespace senai.ifood.webapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<IFoodContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped(typeof(IBaseRepository<>),typeof(IBaseRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

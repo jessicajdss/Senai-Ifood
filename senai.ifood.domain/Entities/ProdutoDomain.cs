@@ -11,7 +11,6 @@ namespace senai.ifood.domain.Entities
         [StringLength(100)]
         public string Nome { get; set; }
 
-        [Required]
         [StringLength(300)]
         public string Descricao { get; set; }
 
