@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using senai.ifood.repository.Context;
 using senai.ifood.webapi;
 using senai.ifood.domain.Contracts;
+using senai.ifood.repository.Repositories;
 
 namespace senai.ifood.webapi
 {
@@ -27,7 +28,9 @@ namespace senai.ifood.webapi
         {
             services.AddDbContext<IFoodContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped(typeof(IBaseRepository<>),typeof(IBaseRepository<>));
+            services.AddMvc();
+
+            services.AddScoped(typeof(IBaseRepository<>),typeof(BaseRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,10 +41,7 @@ namespace senai.ifood.webapi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvc();
         }
     }
 }

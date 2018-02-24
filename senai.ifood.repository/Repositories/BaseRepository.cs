@@ -23,7 +23,7 @@ namespace senai.ifood.repository.Repositories {
             }
         }
 
-        public T BuscarporId (int id) {
+        public T BuscarporId (int id, string[]  includes = null) {
             try{
                 var chavePrimaria = _dbContext.Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties[0];
 
@@ -54,9 +54,18 @@ namespace senai.ifood.repository.Repositories {
             }
         }
 
-        public IEnumerable<T> Listar () {
-            try{                
-                return _dbContext.Set<T>().ToList();
+        public IEnumerable<T> Listar (string[]  includes = null) {
+            try{      
+                var query = _dbContext.Set<T>().AsQueryable(); 
+
+                if(includes == null)  return query.ToList();   
+
+                foreach (var item in includes)
+                {
+                    query = query.Include(item);
+                }
+
+                return query.ToList();
             }
             catch(System.Exception ex) {
                 throw new Exception (ex.Message);
